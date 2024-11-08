@@ -1,5 +1,6 @@
 :root {
     --green: #add149;
+    --alt-background: #f7f7f7; /* Light grey for alternate sections */
 }
 
 * {
@@ -10,14 +11,12 @@
     outline: none;
     border: none;
     text-decoration: none;
-    text-transform: capitalize;
     transition: .2s linear;
 }
 
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
     overflow-x: hidden;
 }
 
@@ -31,10 +30,6 @@ section {
     color: rgb(0, 0, 0);
     padding: 1rem;
     margin: 2rem 0;
-}
-
-.heading span {
-    color: var(--green);
 }
 
 .btn {
@@ -60,17 +55,6 @@ header {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
 }
 
-header .fa-bars {
-    font-size: 3rem;
-    color: #000;
-    border-radius: .5rem;
-    padding: .5rem 1.5rem;
-    cursor: pointer;
-    border: 1px solid rgba(0, 0, 0, .3);
-    display: none; /* Default hidden for desktop */
-}
-
-
 header .logo {
     font-size: 2.5rem;
     color: rgb(0, 0, 0);
@@ -91,19 +75,12 @@ header .navbar a:hover {
     color: var(--green);
 }
 
-header .fa-bars {
-    display: none;
-}
-
 .home {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     min-height: 100vh;
-    background: url(https://img.freepik.com/premium-vector/tl-initial-monogram-logo-with-restaurant-culinary-circle-shape-taste-tradition-logo-design_1190297-35952.jpg?semt=ais_hybrid) no-repeat;
-    background-size: cover;
-    background-position: center;
     color: #000;
 }
 
@@ -116,17 +93,21 @@ header .fa-bars {
     text-decoration: none;
     padding: 1rem 3rem;
     border-radius: 30px;
-    background: #000000;
+    background: #000;
     display: inline-block;
     color: rgb(255, 255, 255);
     font-weight: 700;
     font-size: medium;
     margin-top: 10px;
-    box-shadow: 5px 8px 10px rgb(0, 0, 0, 0.1);
+    box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.1);
 }
 
 .home .content a:hover {
     background: var(--green);
+}
+
+.services, .contact {
+    background-color: var(--alt-background);
 }
 
 .icons-container {
@@ -165,110 +146,40 @@ header .fa-bars {
 .dishes .box-container .box .image img {
     width: 100%;
     height: auto;
-    max-height: 200px;
+    max-height: 150px;
     object-fit: cover;
 }
 
-
-.contact .row .image{
-    flex:1 1 40rem;
-}
-.contact .row .image img{
-    width: 100%;
-}
-.contact .row form .box{
-    padding:1rem;
+.contact .row form .box {
+    padding: 1rem;
     font-size: 1.7rem;
-    color:rgb(0, 0, 0);
-    text-transform: none;
-    border:.1rem solid rgba(0,0,0,.1);
+    color: rgb(0, 0, 0);
+    border: .1rem solid rgba(0, 0, 0, .1);
     border-radius: .5rem;
-    margin:.7rem 0;
+    margin: .7rem 0;
     width: 100%;
 }
 
-.contact .row form textarea{
+.contact .row form textarea {
     height: 15rem;
     resize: none;
 }
 
+/* Media Query */
 @media (max-width: 768px) {
-    header .fa-bars {
-        display: block; /* Show toggle button on mobile */
+    header {
+        flex-direction: column;
+    }
+
+    header .logo {
+        margin-bottom: 1rem; /* Adds spacing between logo and navbar */
     }
 
     header .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
         width: 100%;
-        background: white;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-        display: none; /* Hide navbar initially */
-        padding: 1rem 2rem;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 1rem;
     }
-
-    header #toggler:checked + .navbar {
-        display: flex; /* Show navbar when toggler is checked */
-    }
-}
-
-    .home {
-        background-size: cover;
-        background-position: center;
-    }
-
-    .heading {
-        font-size: 3rem;
-    }
-
-    .icons-container .icons {
-        flex: 1 1 45%;
-    }
-
-    .dishes .box-container .box {
-        flex: 1 1 45%;
-    }
-
-    .contact .row {
-        flex-direction: column;
-    }
-
-    .contact .row form {
-        flex: 1 1 100%;
-    }
-}
-
-@media (max-width: 576px) {
-    .heading {
-        font-size: 2.5rem;
-    }
-
-    .icons-container .icons, 
-    .dishes .box-container .box {
-        flex: 1 1 100%;
-    }
-
-    .home .content h3 {
-        font-size: 2rem;
-    }
-
-    .home .content a {
-        padding: 1rem 2rem;
-    }
-}
-.menu-icon {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-.menu-icon .line {
-    width: 25px;
-    height: 3px;
-    background-color: #333; /* Change to your desired color */
 }
